@@ -1,0 +1,17 @@
+[package]
+name = "rdu-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "CLI for rdu - fast disk usage analyzer"
+
+[[bin]]
+name = "rdu"
+path = "src/main.rs"
+
+[dependencies]
+rdu-lib.workspace = true
+rdu-tui.workspace = true
+clap.workspace = true
+anyhow.workspace = true
+serde_json.workspace = true

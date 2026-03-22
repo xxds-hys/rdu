@@ -1,0 +1,13 @@
+[package]
+name = "rdu-tui"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "TUI module for rdu - fast disk usage analyzer"
+
+[dependencies]
+rdu-lib.workspace = true
+ratatui.workspace = true
+crossterm.workspace = true
+anyhow.workspace = true
+parking_lot.workspace = true

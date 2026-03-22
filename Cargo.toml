@@ -1,0 +1,55 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/rdu-cli",
+    "crates/rdu-lib",
+    "crates/rdu-tui",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+authors = ["rdu contributors"]
+repository = "https://github.com/user/rdu"
+description = "Fast disk usage analyzer written in Rust"
+keywords = ["disk", "usage", "analyzer", "tui", "cli"]
+categories = ["command-line-utilities", "filesystem"]
+
+[workspace.dependencies]
+# Parallel and async
+rayon = "1.10"
+crossbeam = "0.8"
+parking_lot = "0.12"
+tokio = { version = "1", features = ["full"] }
+
+# CLI
+clap = { version = "4", features = ["derive", "cargo"] }
+serde_yaml = "0.9"
+
+# TUI
+ratatui = "0.28"
+crossterm = "0.28"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Utilities
+regex = "1"
+thiserror = "1"
+anyhow = "1"
+chrono = { version = "0.4", features = ["serde"] }
+dirs = "5"
+
+# Internal crates
+rdu-lib = { path = "crates/rdu-lib" }
+rdu-tui = { path = "crates/rdu-tui" }
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+
+[workspace.dev-dependencies]
+tempfile = "3"

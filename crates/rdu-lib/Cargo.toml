@@ -1,0 +1,26 @@
+[package]
+name = "rdu-lib"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Core library for rdu - fast disk usage analyzer"
+
+[dependencies]
+rayon.workspace = true
+crossbeam.workspace = true
+parking_lot.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+regex.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true
+chrono.workspace = true
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", features = ["fileapi", "winbase"] }
+
+[dev-dependencies]
+tempfile = "3"
